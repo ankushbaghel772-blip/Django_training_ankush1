@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Product</title>
+</head>
+<body>
+
+    <form action="{% url 'updateproduct' %}" method="post">
+        {% csrf_token %}
+
+        <input type="hidden" name="id" value="{{Product.id}}">
+
+        <div>
+            <label for="pid">Product ID</label>
+        </div>
+
+        <div>
+            <input type="text"
+                   name="pid"
+                   id="pid"
+                   value="{{Product.pid}}">
+        </div>
+
+        <div>
+            <label for="pname">Product Name</label>
+        </div>
+
+        <div>
+            <input type="text"
+                   name="pname"
+                   id="pname"
+                   value="{{Product.pname}}">
+        </div>
+
+        <div>
+            <label for="pprice">Product Price</label>
+        </div>
+
+        <div>
+            <input type="text"
+                   name="pprice"
+                   id="pprice"
+                   value="{{Product.pprice}}">
+        </div>
+
+        <div>
+            <label for="poffer">Product Offer</label>
+        </div>
+
+        <div>
+            <input type="text"
+                   name="poffer"
+                   id="poffer"
+                   value="{{Product.poffer}}">
+        </div>
+
+        <hr>
+
+        <div>
+            <input type="submit" value="Update">
+        </div>
+
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>My Django App</title> 
+    <link rel="stylesheet" type="" href="{% static 'mycss.css' %}">
+</head>
+<body>
+    <h1 style="color:blue; text-align:center; font-size:36px; font-family:verdana;"> 
+        sagar group of institutions
+
+    </h1> 
+    <div>  
+        <img src="{% static 'C:\Users\ankus\OneDrive\Documents\Desktop\Django Training\day5\master\static\sistec.jpg.jpeg' %}" alt="Sagar Group of Institutions" style="max-width:100%; height:auto; margin:auto; width:50%;">
+    </div> 
+    {% block content %} 
+    {% endblock %}
+    <div> 
+        <h1> 
+            ankush baghel
+        </h1>
+    </div>
+</body>
+</html> 

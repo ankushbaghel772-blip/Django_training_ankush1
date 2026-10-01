@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <Div>
+        <h1>This is Login Page</h1>
+    </Div>
+    <from action="{% url "loginvalidation" %}" method="post"> 
+        {% csrf_token %}
+        <div>
+            <label for="username">username</label>
+        </div>
+        <div>
+            <input type="text" name="username" id="username" required>
+        </div>
+        <div>
+            <label for="password">password</label>
+        </div>
+        <div>
+            <input type="password" name="password" id="password" required>
+        </div>
+        <div>
+            <input type="submit" value="Login">
+        </div>
+        <span>{{erg}}</span>
+    </from>
+    <br>
+    <a href="{% url 'signup' %}">create new user</a>
+              </br>
+</body>
+</html>

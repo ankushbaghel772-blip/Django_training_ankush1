@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Website</title>
+
+    <style>
+        /* =========================
+           BASIC RESET
+        ========================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* =========================
+           BODY + ANIMATED BACKGROUND
+        ========================= */
+        body {
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            color: white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 30px;
+            overflow-x: hidden;
+
+            background:
+                radial-gradient(circle at 10% 20%, #4f46e5 0%, transparent 30%),
+                radial-gradient(circle at 90% 80%, #ec4899 0%, transparent 30%),
+                linear-gradient(135deg, #020617, #0f172a, #1e1b4b);
+
+            position: relative;
+        }
+
+        /* Neon animated circles */
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+
+            width: 300px;
+            height: 300px;
+
+            border-radius: 50%;
+
+            filter: blur(80px);
+            opacity: 0.5;
+
+            z-index: -1;
+
+            animation: floating 8s infinite alternate ease-in-out;
+        }
+
+        body::before {
+            background: #22d3ee;
+            top: -120px;
+            left: -120px;
+        }
+
+        body::after {
+            background: #ec4899;
+            bottom: -120px;
+            right: -120px;
+
+            animation-delay: 2s;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(100px, 60px);
+            }
+        }
+
+        /* =========================
+           GLASS CARD
+        ========================= */
+        .container {
+            width: 100%;
+            max-width: 600px;
+
+            padding: 35px;
+
+            background: rgba(255, 255, 255, 0.08);
+
+            border: 1px solid rgba(255, 255, 255, 0.2);
+
+            border-radius: 25px;
+
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+
+            box-shadow:
+                0 0 40px rgba(99, 102, 241, 0.25),
+                inset 0 0 20px rgba(255, 255, 255, 0.03);
+
+            animation: cardAppear 1s ease;
+        }
+
+        @keyframes cardAppear {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* =========================
+           HEADING
+        ========================= */
+        h1 {
+            text-align: center;
+
+            margin-bottom: 30px;
+
+            font-size: 32px;
+
+            background: linear-gradient(
+                90deg,
+                #22d3ee,
+                #8b5cf6,
+                #ec4899
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            text-shadow: 0 0 25px rgba(139, 92, 246, 0.5);
+        }
+
+        /* =========================
+           FORM
+        ========================= */
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #cbd5e1;
+
+            font-weight: bold;
+        }
+
+        /* =========================
+           INPUT
+        ========================= */
+        input[type="text"] {
+            width: 100%;
+
+            padding: 13px 15px;
+
+            border-radius: 12px;
+
+            border: 1px solid rgba(255, 255, 255, 0.2);
+
+            background: rgba(15, 23, 42, 0.7);
+
+            color: white;
+
+            font-size: 15px;
+
+            outline: none;
+
+            transition: all 0.3s ease;
+        }
+
+        /* Hover animation */
+        input[type="text"]:hover {
+            border-color: #8b5cf6;
+
+            transform: translateY(-2px);
+        }
+
+        /* Focus glow */
+        input[type="text"]:focus {
+            border-color: #22d3ee;
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 0 0 3px rgba(34, 211, 238, 0.15),
+                0 0 20px rgba(34, 211, 238, 0.4);
+        }
+
+        /* =========================
+           SUBMIT BUTTON
+        ========================= */
+        input[type="submit"] {
+            width: 100%;
+
+            padding: 14px;
+
+            margin-top: 10px;
+
+            border: none;
+
+            border-radius: 14px;
+
+            color: white;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            background: linear-gradient(
+                90deg,
+                #4f46e5,
+                #8b5cf6,
+                #ec4899
+            );
+
+            box-shadow:
+                0 0 20px rgba(139, 92, 246, 0.4);
+
+            transition: all 0.3s ease;
+        }
+
+        /* Button hover */
+        input[type="submit"]:hover {
+            transform: translateY(-3px) scale(1.02);
+
+            box-shadow:
+                0 0 30px rgba(236, 72, 153, 0.6);
+        }
+
+        input[type="submit"]:active {
+            transform: scale(0.98);
+        }
+
+        /* =========================
+           KEYBOARD FOCUS
+        ========================= */
+        input:focus-visible {
+            outline: 2px solid #22d3ee;
+
+            outline-offset: 3px;
+        }
+
+        /* =========================
+           MOBILE RESPONSIVE
+        ========================= */
+        @media (max-width: 600px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .container {
+                padding: 25px 20px;
+
+                border-radius: 20px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+        }
+
+        /* =========================
+           REDUCED MOTION
+        ========================= */
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>this is Home page</h1>
+
+        <form action="{% url 'result' %}">
+
+            <div class="form-group">
+                <label>RI:</label>
+                <input type="text" required name="RI">
+            </div>
+
+            <div class="form-group">
+                <label>Na:</label>
+                <input type="text" required name="Na">
+            </div>
+
+            <div class="form-group">
+                <label>Mg:</label>
+                <input type="text" required name="Mg">
+            </div>
+
+            <div class="form-group">
+                <label>Al:</label>
+                <input type="text" required name="Al">
+            </div>
+
+            <div class="form-group">
+                <label>Si:</label>
+                <input type="text" required name="Si">
+            </div>
+
+            <div class="form-group">
+                <label>K:</label>
+                <input type="text" required name="K">
+            </div>
+
+            <div class="form-group">
+                <label>Ca:</label>
+                <input type="text" required name="Ca">
+            </div>
+
+            <div class="form-group">
+                <label>Ba:</label>
+                <input type="text" required name="Ba">
+            </div>
+
+            <div class="form-group">
+                <label>Fe:</label>
+                <input type="text" required name="Fe">
+            </div>
+
+            <input type="submit" value="submit">
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

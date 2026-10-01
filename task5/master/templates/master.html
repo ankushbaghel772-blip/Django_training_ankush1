@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}My Website{% endblock %}</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* ================= BODY ================= */
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+
+            /* Space background */
+            background:
+                radial-gradient(circle at 20% 20%, #243b80 0%, transparent 25%),
+                radial-gradient(circle at 80% 70%, #4b176f 0%, transparent 25%),
+                linear-gradient(135deg, #020617, #07143d, #13052b);
+
+            position: relative;
+        }
+
+        /* ================= STARS ================= */
+
+        .stars,
+        .stars2,
+        .stars3 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        .stars {
+            background-image:
+                radial-gradient(2px 2px at 10% 20%, white, transparent),
+                radial-gradient(2px 2px at 30% 40%, white, transparent),
+                radial-gradient(2px 2px at 50% 10%, white, transparent),
+                radial-gradient(2px 2px at 70% 30%, white, transparent),
+                radial-gradient(2px 2px at 90% 20%, white, transparent),
+                radial-gradient(2px 2px at 20% 80%, white, transparent),
+                radial-gradient(2px 2px at 60% 70%, white, transparent),
+                radial-gradient(2px 2px at 80% 90%, white, transparent);
+
+            animation: moveStars 12s linear infinite;
+        }
+
+        .stars2 {
+            background-image:
+                radial-gradient(1px 1px at 15% 60%, #00eaff, transparent),
+                radial-gradient(1px 1px at 35% 15%, #ffffff, transparent),
+                radial-gradient(2px 2px at 55% 50%, #b86cff, transparent),
+                radial-gradient(1px 1px at 75% 80%, #ffffff, transparent),
+                radial-gradient(2px 2px at 95% 50%, #00eaff, transparent);
+
+            animation: moveStars 20s linear infinite reverse;
+        }
+
+        .stars3 {
+            background-image:
+                radial-gradient(2px 2px at 5% 90%, #ffffff, transparent),
+                radial-gradient(1px 1px at 25% 30%, #00ffff, transparent),
+                radial-gradient(2px 2px at 45% 90%, #ffffff, transparent),
+                radial-gradient(1px 1px at 65% 20%, #ffffff, transparent),
+                radial-gradient(2px 2px at 85% 60%, #a855f7, transparent);
+
+            animation: twinkle 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes moveStars {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-80px);
+            }
+        }
+
+        @keyframes twinkle {
+            from {
+                opacity: 0.4;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* ================= SHOOTING STARS ================= */
+
+        .shooting-star {
+            position: fixed;
+            width: 120px;
+            height: 3px;
+
+            background: linear-gradient(
+                90deg,
+                transparent,
+                #ffffff,
+                #00eaff
+            );
+
+            border-radius: 50%;
+            transform: rotate(-35deg);
+
+            box-shadow:
+                0 0 10px #00eaff,
+                0 0 20px #ffffff;
+
+            z-index: -1;
+
+            animation: shooting 4s linear infinite;
+        }
+
+        .shooting-star:nth-child(1) {
+            top: 15%;
+            left: 80%;
+            animation-delay: 1s;
+        }
+
+        .shooting-star:nth-child(2) {
+            top: 35%;
+            left: 70%;
+            animation-delay: 4s;
+        }
+
+        .shooting-star:nth-child(3) {
+            top: 60%;
+            left: 90%;
+            animation-delay: 7s;
+        }
+
+        @keyframes shooting {
+
+            0% {
+                transform: translate(0, 0) rotate(-35deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            50% {
+                transform: translate(-600px, 400px) rotate(-35deg);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translate(-600px, 400px) rotate(-35deg);
+                opacity: 0;
+            }
+        }
+
+        /* ================= MAIN WEBSITE ================= */
+
+        .website {
+            width: 80%;
+            max-width: 1000px;
+            margin: 40px auto;
+
+            background: rgba(173, 128, 128, 0.97);
+
+            border: 2px solid #00ff88;
+
+            min-height: 600px;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 0 20px rgba(0, 255, 136, 0.5),
+                0 0 50px rgba(0, 234, 255, 0.15);
+
+            overflow: hidden;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            height: 80px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-bottom: 2px solid #333;
+
+            background: linear-gradient(
+                90deg,
+                #f7a7a7,
+                #aa6e6e,
+                #9c6060
+            );
+        }
+
+        header h1 {
+            font-size: 32px;
+
+            color: #111;
+
+            text-shadow:
+                0 0 5px rgba(0, 255, 136, 0.3);
+        }
+
+        /* ================= NAVIGATION ================= */
+
+        nav {
+            display: flex;
+
+            border-bottom: 2px solid #333;
+
+            background: #ffffff;
+        }
+
+        nav a {
+            flex: 1;
+
+            text-align: center;
+
+            padding: 18px;
+
+            text-decoration: none;
+
+            color: black;
+
+            border-right: 1px solid #a11b1b;
+
+            font-size: 18px;
+
+            transition: 0.3s;
+        }
+
+        nav a:last-child {
+            border-right: none;
+        }
+
+        nav a:hover {
+            background: linear-gradient(
+                90deg,
+                #be2222,
+                #e63946
+            );
+
+            color: white;
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 5px 15px rgba(190, 34, 34, 0.3);
+        }
+
+        /* ================= CONTENT ================= */
+
+        .content {
+            padding: 30px;
+            min-height: 400px;
+        }
+
+        /* ================= CARDS ================= */
+
+        .cards {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .card {
+            height: 180px;
+
+            border: 2px solid #dd2323;
+
+            padding: 10px;
+
+            text-align: center;
+
+            overflow: hidden;
+
+            background: back;
+
+            border-radius: 8px;
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+
+            border-color: #00c853;
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ================= IMAGE ================= */
+
+        .card-image {
+            width: 100%;
+
+            height: 120px;
+
+            margin: auto;
+
+            overflow: hidden;
+
+            border: 1px solid #333;
+
+            border-radius: 5px;
+        }
+
+        .card-image img {
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            transition: 0.4s;
+        }
+
+        .card:hover img {
+            transform: scale(1.08);
+        }
+
+        .card h3 {
+            margin-top: 8px;
+
+            font-size: 17px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            border-top: 2px solid #333;
+
+            padding: 20px;
+
+            text-align: center;
+
+            margin-top: 20px;
+
+            background: #eee5e5;
+        }
+
+        /* ================= TABLET ================= */
+
+        @media (max-width: 800px) {
+
+            .website {
+                width: 90%;
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 500px) {
+
+            .website {
+                width: 95%;
+
+                margin: 20px auto;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 25px;
+            }
+
+            nav a {
+                font-size: 15px;
+                padding: 14px 5px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Moving stars -->
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+
+    <!-- Shooting stars -->
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+
+    <!-- Main Website -->
+    <div class="website">
+
+        <!-- Header -->
+        <header>
+            <h1>My Website</h1>
+        </header>
+
+        <!-- Navigation -->
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about/">About</a>
+            <a href="/info/">Info</a>
+        </nav>
+
+        <!-- Content -->
+        <div class="content">
+
+            {% block content %}
+
+            {% endblock %}
+
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            © 2026 @copywrite ANKUSH BAGHEL| All Rights Reserved
+        </footer>
+
+    </div>
+
+</body>
+</html>

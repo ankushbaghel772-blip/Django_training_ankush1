@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prediction Result</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 30px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 750px;
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .heading h1 {
+            color: #333;
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .heading p {
+            color: #777;
+            font-size: 15px;
+        }
+
+        .result-box {
+            background: #f7f7f7;
+            padding: 22px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border-left: 5px solid #667eea;
+        }
+
+        .result-box h2 {
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .values {
+            color: #555;
+            font-size: 16px;
+            word-break: break-word;
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .prediction {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+
+        .prediction h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .prediction h1 {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .glass-types {
+            background: #fafafa;
+            padding: 22px;
+            border-radius: 15px;
+            border: 1px solid #eee;
+        }
+
+        .glass-types h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 21px;
+        }
+
+        .glass-types ul {
+            list-style: none;
+        }
+
+        .glass-types li {
+            padding: 10px 12px;
+            margin-bottom: 8px;
+            background: white;
+            border-radius: 8px;
+            color: #555;
+            border-left: 4px solid #667eea;
+            transition: 0.3s;
+        }
+
+        .glass-types li:hover {
+            transform: translateX(5px);
+            background: #f0f0ff;
+        }
+
+        .back-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+            background: #667eea;
+            color: white;
+            padding: 13px;
+            border-radius: 10px;
+            margin-top: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+
+            .container {
+                padding: 25px 20px;
+            }
+
+            .heading h1 {
+                font-size: 26px;
+            }
+
+            .prediction h1 {
+                font-size: 23px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="heading">
+            <h1>Glass Prediction Result</h1>
+            <p>Machine Learning Prediction</p>
+        </div>
+
+        <div class="result-box">
+            <h2>Entered Values</h2>
+
+            <div class="values">
+                {{ lis }}
+            </div>
+        </div>
+
+        <div class="prediction">
+
+            <h2>Predicted Result</h2>
+
+            <h1>{{ ans }}</h1>
+
+        </div>
+
+        <div class="glass-types">
+
+            <h2>Type of Glass (Class Attribute)</h2>
+
+            <ul>
+                <li>1 — Building Windows Float Processed</li>
+                <li>2 — Building Windows Non-Float Processed</li>
+                <li>3 — Vehicle Windows Float Processed</li>
+                <li>4 — Vehicle Windows Non-Float Processed</li>
+                <li>5 — Containers</li>
+                <li>6 — Tableware</li>
+                <li>7 — Headlamps</li>
+            </ul>
+
+        </div>
+
+        <a href="/" class="back-btn">
+            ← Predict Again
+        </a>
+
+    </div>
+
+</body>
+
+</html>
+```
